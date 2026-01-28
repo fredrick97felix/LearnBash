@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+for x in foo bar baz bat; do
+	echo "x is $x"
+done
