@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+
+# Initialize if .git folder doesn't exist
+if [ ! -d ".git" ]; then
+    git init
+    read -p "Enter GitHub Repo URL: " repo_url
+    git remote add origin "$repo_url"
+fi
+
+git add .
+read -p "Commit message: " msg
+git commit -m "$msg"
+
+# Get current branch and push
+branch=$(git rev-parse --abbrev-ref HEAD)
+git push -u origin "$branch"
+
